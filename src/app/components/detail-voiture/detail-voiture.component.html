@@ -1,0 +1,22 @@
+
+<ng-container *ngIf="!isLoading">
+  <h1>Détail de la voiture</h1>
+  <div class="row justify-content-center">
+    <div class="card shadow " style="width: 50rem; border-radius: 1.5rem; border: none">
+
+      <div class="card-body ">
+        <img src="assets/images/{{voiture.photo}}" width="100%" >
+        <br>
+        <p><span>Date mise en ciculation :</span> {{voiture.miseEnCirculation}} </p>
+        <p><span> Nombre de km :</span> {{voiture.kilometrage}} km</p>
+        <p><span> Carburant :</span> {{voiture.carburant}} </p>
+        <p><span> Prix :</span> {{voiture.prix}} €</p>
+        <p><span> Description :</span> {{voiture.descriptionLongue}}</p>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <div>Chargement en cours...</div>
+</ng-container>

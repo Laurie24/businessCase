@@ -1,0 +1,23 @@
+h1{
+  text-align: center;
+  padding-top: 12rem;
+
+}
+
+img{
+  width: 500px;
+  border-radius: 1.3rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  img{
+    width: 300px;
+    border-radius: 0.5rem;
+  }
+}
+
+h3{
+  color: #06DF86;
+}

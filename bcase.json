@@ -1,0 +1,88 @@
+{
+  "voiture": [
+    {
+      "id": 1,
+      "photo": "308.jpg",
+      "marque": "Peugeot",
+      "model": "308",
+      "miseEnCirculation": "20/12/2017",
+      "kilometrage": 24537,
+      "carburant": "Essence",
+      "prix": 17800,
+      "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
+      "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
+
+    },
+    {
+      "id": 2,
+      "photo": "Clio.jpg",
+      "marque": "Renault",
+      "model": "Clio",
+      "miseEnCirculation": "08/05/2013",
+      "kilometrage": 174987,
+      "carburant": "Diesel",
+      "prix": 2300,
+      "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
+      "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
+
+    },
+    {
+      "id": 3,
+      "photo": "Q5.jpg",
+      "marque": "Audi",
+      "model": "Q5",
+      "miseEnCirculation": "16/09/2016",
+      "kilometrage": 59580,
+      "carburant": "Essence",
+      "prix": 32300,
+      "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
+      "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
+
+    },
+    {
+      "id": 4,
+      "photo": "2008.jpg",
+      "marque": "Peugeot",
+      "model": "2008",
+      "miseEnCirculation": "26/07/2015",
+      "kilometrage": 46800,
+      "carburant": "Diesel",
+      "prix": 9300,
+      "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
+      "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
+
+    },
+    {
+      "id": 5,
+      "photo": "A3.jpg",
+      "marque": "Audi",
+      "model": "A3",
+      "miseEnCirculation": "15/10/2017",
+      "kilometrage": 29400,
+      "carburant": "Essence",
+      "prix": 9300,
+      "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
+      "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
+
+    }
+  ],
+
+  "marque": [
+    {
+      "nom": "Peugeot"
+    },
+    {
+      "nom": "Renault"
+    },
+    {
+      "nom": "Audi"
+    },
+    {
+      "nom": "Mercedes"
+    },
+    {
+      "nom": "BMW"
+    }
+  ]
+
+}
