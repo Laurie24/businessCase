@@ -1,27 +1,32 @@
 import {Marque} from './marque';
+import {Modele} from './modele';
+import {Garage} from './garage';
+import {Carburant} from './carburant';
 
-export class Voiture {
+export class Annonce {
   id: number;
-  marque: string;
-  photo: string;
-  model: string;
-  miseEnCirculation: Date;
+  marque: Marque;
+  image: string;
+  modele: Modele;
+  date: Date;
   kilometrage: number;
-  carburant: string;
+  garage: Garage;
+  carburant: Carburant;
   prix: number;
   descriptionLongue: string;
-  descriptionCourte: string;
+  description: string;
 
-  constructor(id: number = null, marque: string = null, photo: string = null, model: string = null, miseEnCirculation: Date = null, kilometrage: number = null, carburant: string = null, prix: number = null, descriptionLongue: string = null, descriptionCourte: string = null) {
+  constructor(id: number = null, marque: Marque = null, image: string = null, modele: Modele = null, date: Date = null, kilometrage: number = null, garage: Garage = null, carburant: Carburant = null, prix: number = null, descriptionLongue: string = null, description: string = null) {
     this.id = id;
-    this.photo = photo;
+    this.image = image;
     this.marque = marque;
-    this.model = model;
-    this.miseEnCirculation = miseEnCirculation;
+    this.modele = modele;
+    this.date = date;
     this.kilometrage = kilometrage;
+    this.garage = garage;
     this.carburant = carburant;
     this.prix = prix;
     this.descriptionLongue = descriptionLongue;
-    this.descriptionCourte = descriptionCourte;
+    this.description = description;
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Voiture} from '../models/voiture';
+import {Annonce} from '../models/voiture';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
@@ -8,7 +8,7 @@ import {catchError, retry} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VoitureService {
-  apiURL = 'http://localhost:3000/voiture';
+  apiURL = 'http://localhost:8000/api/annonces';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -16,37 +16,37 @@ export class VoitureService {
   };
 
   constructor(private http: HttpClient) { }
-  getAll(): Observable<Voiture[]> {
-    return this.http.get<Voiture[]>(this.apiURL)
+  getAll(): Observable<Annonce[]> {
+    return this.http.get<Annonce[]>(this.apiURL)
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
-  getOneVoitureById(id: number): Observable<Voiture> {
-    return this.http.get<Voiture>(this.apiURL + '/' + id)
+  getOneVoitureById(id: number): Observable<Annonce> {
+    return this.http.get<Annonce>(this.apiURL + '/' + id)
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
 
-  addVoiture(voiture: Voiture): Observable<Voiture>{
-    return this.http.post<Voiture>(this.apiURL, voiture, this.httpOptions).pipe(
+  addVoiture(voiture: Annonce): Observable<Annonce>{
+    return this.http.post<Annonce>(this.apiURL, voiture, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
 
-  deleteVoiture(id: number): Observable<Voiture>{
-    return this.http.delete<Voiture>(this.apiURL + '/' + id)
+  deleteVoiture(id: number): Observable<Annonce>{
+    return this.http.delete<Annonce>(this.apiURL + '/' + id)
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
 
-  edit(planet: Voiture){
-    return this.http.put<Voiture>(this.apiURL + '/' + planet.id , planet, this.httpOptions).pipe(
+  edit(planet: Annonce){
+    return this.http.put<Annonce>(this.apiURL + '/' + planet.id , planet, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
@@ -64,10 +64,10 @@ export class VoitureService {
     return throwError(errorMessage);
   }
 
-  filteredVehicule(searchEngine: Voiture, vehiculeSource: Voiture[]) {
+  filteredVehicule(searchEngine: Annonce, vehiculeSource: Annonce[]) {
     console.log('search engine', searchEngine);
     console.log('voitures', vehiculeSource);
-    let newCarArray: Voiture[];
+    let newCarArray: Annonce[];
     newCarArray = vehiculeSource.filter(car => car.marque === searchEngine.marque);
     return newCarArray;
   }

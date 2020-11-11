@@ -1,23 +1,74 @@
 <div class="padding">
   <div class="container py-5 d-flex justify-content-center">
-    <div class="card shadow mb-5 pb-4 bg-white" style="width: 22rem; border-radius: 1.5rem; border: none;">
+    <div class="card shadow mb-5 pb-4" style="width: 22rem; border-radius: 1.5rem; border: none;">
       <div class="card-body text-center">
         <h2>Connectez-vous</h2>
         <br>
-        <form>
+        <form
+          *ngIf="!isLoggedIn"
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate
+        >
           <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label>Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="form.username"
+              required
+              #username="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && username.invalid"
+            >
+              Username is required!
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Mot de passe</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label>Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="form.password"
+              required
+              minlength="6"
+              #password="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && password.invalid"
+            >
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+            </div>
           </div>
-          <small><a href="#" style="color: cornflowerblue;">Email ou mot de passe oublié</a></small>
+          <div class="form-group">
+            <a>
+              <button class="btn" style="background-color: #06DF86; color: #fff; border-radius: .5rem; font-weight: bold;">
+                Se connecter
+              </button>
+            </a>
+
+          </div>
+          <div class="form-group">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && isLoginFailed"
+            >
+              La connexion a échoué: {{ errorMessage }}
+            </div>
+          </div>
         </form>
-        <br>
-        <br>
-        <a href="#" class="link px-4 py-3" style="background-color: #06DF86; color: #fff; border-radius: .5rem; font-weight: bold;" >Se connecter</a>
         <br>
         <br>
         <br>

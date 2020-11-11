@@ -1,22 +1,31 @@
 
 <ng-container *ngIf="!isLoading">
-  <h1>Détail de la voiture</h1>
+  <h1>{{voiture.modele.marque.nom}} {{voiture.modele.nom}}</h1>
   <div class="row justify-content-center">
     <div class="card shadow " style="width: 50rem; border-radius: 1.5rem; border: none">
 
-      <div class="card-body ">
-        <img src="assets/images/{{voiture.photo}}" width="100%" >
+      <div class="card-body p-5">
+        <img src="assets/images/{{voiture.image}}" width="100%" >
         <br>
-        <p><span>Date mise en ciculation :</span> {{voiture.miseEnCirculation}} </p>
-        <p><span> Nombre de km :</span> {{voiture.kilometrage}} km</p>
-        <p><span> Carburant :</span> {{voiture.carburant}} </p>
-        <p><span> Prix :</span> {{voiture.prix}} €</p>
-        <p><span> Description :</span> {{voiture.descriptionLongue}}</p>
+        <div class="box">
+          <p><span> Date mise en ciculation :</span> {{voiture.date|date:'dd-MM-yyyy'}} </p>
+          <p><span> Nombre de km :</span> {{voiture.kilometrage}} km</p>
+          <p><span> Carburant :</span> {{voiture.modele.carburant.type}} </p>
+          <p><span> Prix :</span> {{voiture.prix}} €</p>
+          <p><span> Description :</span> {{voiture.descriptionLongue}}</p>
+        </div>
       </div>
     </div>
   </div>
 </ng-container>
 
 <ng-container *ngIf="isLoading">
-  <div>Chargement en cours...</div>
+  <div class="box">
+    <div class="row">
+      <mat-spinner class="custom-spinner-color"> </mat-spinner>
+    </div>
+    <div class="row">
+      <p>Chargement en cours...</p>
+    </div>
+  </div>
 </ng-container>

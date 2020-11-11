@@ -1,9 +1,9 @@
 footer{
-  background-color: #191B28;
+  background-color: var(--foreground-default);
 }
 
 .copyright{
-  color: white;
+  color: var(--background-secondary);
 }
 
 a{

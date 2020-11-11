@@ -5,46 +5,44 @@
         <div class="barre-search card mb-3">
           <div class="card-body">
             <h2 class="card-title">Rechercher une voiture d'occasion</h2>
-                    <form #searchValidation = "ngForm" (ngSubmit)="triData()">
                       <div class="row ">
                         <div>
-                          <select (change)="filterModel()" [(ngModel)]="searchEngine.marque" name="marque">
-                            <option [ngValue]="null">Toutes les marques</option>
-                            <option *ngFor="let marque of marques" [ngValue]="marque.nom">{{ marque.nom }}</option>
+                          <select [(ngModel)]="searchMarque">
+                            <option [ngValue]="">Toutes les marques</option>
+                            <option *ngFor="let voiture of marques">{{ voiture.nom }}</option>
                           </select>
                           <br>
-                          <select>
-                            <option selected>Tous les modèles</option>
-                            <option *ngFor="let voiture of voiture">{{ voiture.model }}</option>
+                          <select [(ngModel)]="searchModele">
+                            <option [ngValue]="">Tous les modèles</option>
+                            <option *ngFor="let voiture of modeles" >{{ voiture.nom }}</option>
                           </select>
                           <br>
-                          <select>
-                            <option selected>Tous les carburants</option>
-                            <option *ngFor="let voiture of voiture">{{ voiture.carburant }}</option>
+                          <select [(ngModel)]="searchCarburant">
+                            <option [ngValue]="">Tous les carburants</option>
+                            <option *ngFor="let voiture of carburants" >{{ voiture.type }}</option>
                           </select>
                         </div>
 
-
                         <div>
-                          <select>
-                            <option selected>Kilomètrage</option>
-                            <option *ngFor="let voiture of voiture">{{ voiture.kilometrage }}</option>
+                          <select [(ngModel)]="searchKilometrage">
+                            <option [ngValue]="">Toutes les kilométrages</option>
+                            <option *ngFor="let voiture of voitures" [ngValue]="voiture.kilometrage">{{ voiture.kilometrage }}</option>
                           </select>
                           <br>
-                          <select>
-                            <option selected>Tous les prix</option>
-                            <option *ngFor="let voiture of voiture">{{ voiture.prix }}</option>
+                          <select [(ngModel)]="searchPrix">
+                            <option [ngValue]="">Toutes les prix</option>
+                            <option *ngFor="let voiture of voitures" [ngValue]="voiture.prix">{{ voiture.prix }}</option>
                           </select>
                           <br>
-                          <select>
-                            <option selected>Toutes les années</option>
-                            <option *ngFor="let voiture of voiture">{{ voiture.miseEnCirculation }}</option>
+                          <select [(ngModel)]="searchDate">
+                            <option [ngValue]="">Toutes les dates</option>
+                            <option *ngFor="let voiture of voitures" [ngValue]="voiture.date">{{ voiture.date }}</option>
                           </select>
                         </div>
                       </div>
-                    </form>
+
             <br>
-            <button type="button" class="btn" id="result">Rechercher</button>
+<!--            <button type="button" class="btn" id="result">Rechercher</button>-->
           </div>
 
         </div>
@@ -56,23 +54,33 @@
 
 
   <h1>Nos véhicules</h1>
-
+  <ng-container *ngIf="!isLoading">
   <div class="box">
     <div class="liste row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-      <div *ngFor="let voiture of voiture" class="card shadow mb-5 pb-4 bg-white" style="width: 22rem; border-radius: 1rem; border: none;">
+      <div *ngFor='let voiture of voitures | marquePipe: searchMarque | modelePipe: searchModele | modeleCarburantPipe: searchCarburant | kilometragePipe: searchKilometrage | prixPipe: searchPrix | datePipe: searchDate ' class="card shadow mb-5 pb-4 style_prevu_kit" style="width: 22rem; border-radius: 1rem; border: none;">
         <a [routerLink]="['/home', voiture.id]" > <div class="card-body">
-          <h4>{{voiture.marque}} {{voiture.model}}</h4>
-          <img src='../../../assets/images/{{voiture.photo}}' class="card-img-top" alt="">
-          <p><span>Date mise en ciculation :</span> {{voiture.miseEnCirculation}} </p>
+          <h4>{{voiture.modele.marque.nom}} {{voiture.modele.nom}}</h4>
+          <img src='../../../assets/images/{{voiture.image}}' class="card-img-top" alt="">
           <p><span> Nombre de km :</span> {{voiture.kilometrage}} km</p>
-          <p><span> Carburant :</span> {{voiture.carburant}} </p>
           <p><span> Prix :</span> {{voiture.prix}} €</p>
-          <p><span> Description :</span> {{voiture.descriptionCourte}}</p>
+          <p><span> Carburant :</span> {{voiture.modele.carburant.type}}</p>
+          <p><span> Description :</span> {{voiture.description}}</p>
         </div></a>
       </div>
     </div>
   </div>
+  </ng-container>
 </div>
+<ng-container *ngIf="isLoading">
+  <div class="box" style="padding-bottom: 20rem">
+    <div class="row">
+      <mat-spinner class="custom-spinner-color"> </mat-spinner>
+    </div>
+    <div class="row">
+    <p>Chargement en cours...</p>
+  </div>
+  </div>
+</ng-container>
 
 
 

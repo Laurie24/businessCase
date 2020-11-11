@@ -1,9 +1,27 @@
 h1{
   text-align: center;
   padding-bottom: 2rem ;
-  padding-top: 5rem;
+  padding-top: 13rem;
 }
 
 .card{
   margin-bottom: 5rem;
+  background-color: var(--background-tertiary);
+}
+
+.mat-progress-spinner::ng-deep circle {
+  stroke: #06DF86;
+}
+
+mat-spinner{
+  margin: 10rem 0 2rem 0;
+  justify-content: center;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  padding-top: 1rem;
 }

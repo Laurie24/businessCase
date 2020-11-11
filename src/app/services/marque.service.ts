@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Marque} from '../models/marque';
-import {Voiture} from '../models/voiture';
+import {Annonce} from '../models/voiture';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
@@ -9,7 +9,7 @@ import {catchError, retry} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MarqueService {
-  apiURL = 'http://localhost:3000/marque';
+  apiURL = 'http://localhost:8000/api/marques';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

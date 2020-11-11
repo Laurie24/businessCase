@@ -7,6 +7,35 @@
   margin: 2rem;
   display: flex;
   justify-content: center;
+  background-color: var(--background-tertiary);
+}
+
+.style_prevu_kit
+{
+  display:inline-block;
+  border:0;
+  position: relative;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
+
+}
+.style_prevu_kit:hover
+{
+  z-index: 2;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.1);
+  transition: all 200ms ease-in;
+  transform: scale(1.1);
 }
 
 .search{
@@ -18,6 +47,18 @@
 .barre-search{
   background-color: rgba(25, 27, 40, 0.5);
   border: none;
+  animation: apparition 0.8s ease-out;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 h1{
@@ -50,3 +91,18 @@ h2{
    padding: .3rem;
    margin: 1rem;
  }
+
+ .date{
+   font-size: xx-small;
+ }
+
+ mat-spinner{
+   margin: 1rem 0 2rem 0;
+   justify-content: center;
+ }
+
+
+.mat-progress-spinner::ng-deep circle {
+  stroke: #06DF86;
+}
+

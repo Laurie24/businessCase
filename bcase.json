@@ -11,7 +11,6 @@
       "prix": 17800,
       "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
       "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
-
     },
     {
       "id": 2,
@@ -24,7 +23,6 @@
       "prix": 2300,
       "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
       "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
-
     },
     {
       "id": 3,
@@ -37,7 +35,6 @@
       "prix": 32300,
       "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
       "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
-
     },
     {
       "id": 4,
@@ -50,7 +47,6 @@
       "prix": 9300,
       "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
       "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
-
     },
     {
       "id": 5,
@@ -63,10 +59,20 @@
       "prix": 9300,
       "descriptionLongue": "Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Mauris sit amet massa vitae. Arcu odio ut sem nulla pharetra diam. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Eu volutpat odio facilisis mauris sit amet massa.",
       "descriptionCourte": "Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. "
-
+    },
+    {
+      "id": 6,
+      "photo": null,
+      "marque": "Mercedes",
+      "model": "GLA",
+      "miseEnCirculation": null,
+      "kilometrage": "12780",
+      "carburant": "Essence",
+      "prix": "35289",
+      "descriptionLongue": "Lorem ipsum",
+      "descriptionCourte": "lorem"
     }
   ],
-
   "marque": [
     {
       "nom": "Peugeot"
@@ -83,6 +89,19 @@
     {
       "nom": "BMW"
     }
+  ],
+  "garage": [
+    {
+      "id": 1,
+      "nom": "Dumas",
+      "adresse": "21 chemin des oliviers 13260 Cassis",
+      "telephone": "07 43 56 21 97"
+    },
+    {
+      "nom": "Lavenir",
+      "adresse": "Route de Paris 42310 La Pacaudière",
+      "telephone": "04 77 66 32 65",
+      "id": 2
+    }
   ]
-
 }
