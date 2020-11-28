@@ -1,0 +1,153 @@
+
+<div class="padding">
+  <ng-container *ngIf="!isLoading">
+  <h1>Gérer mes annonces</h1>
+
+  <!--<div class="container">
+    <table class="table">
+      <thead>
+      <th>Photo</th>
+      <th>Marque</th>
+      <th>Modèle</th>
+      <th>Date</th>
+      <th>Carburant</th>
+      <th>Prix</th>
+      <th>Kilomètrage</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let voiture of this.annonces">
+        <td><img src='../../../assets/images/{{annonces.photo}}' style="width: 50px" class="card-img-top" alt=""></td>
+        <td>{{ annonces.modele.marque.nom }}</td>
+        <td>{{ annonces.modele.nom }}</td>
+        <td>{{ annonces.annee|date:'dd-MM-yyyy' }}</td>
+        <td>{{ annonces.carburant.nom }}</td>
+        <td>{{ annonces.prix }}€</td>
+        <td>{{ annonces.kilometrage }} km</td>
+        <td>
+          <a [routerLink]="['/gererAnnonce/update', annonces.id]" ><i class="fas fa-edit"></i></a><br><br>
+&lt;!&ndash;          <a style="cursor: pointer" (click)="deleteVoiture(voiture)"><i class="fas fa-trash"></i></a></td>&ndash;&gt;
+      </tr>
+      </tbody>
+    </table>
+  </div>-->
+  </ng-container>
+  </div>
+  <ng-container *ngIf="isLoading">
+    <div class="box">
+      <div class="row">
+        <mat-spinner class="custom-spinner-color"> </mat-spinner>
+      </div>
+      <div class="row">
+        <p>Chargement en cours...</p>
+      </div>
+    </div>
+  </ng-container>
+
+
+
+  <div class="container py-5 d-flex justify-content-center">
+    <div class="card shadow mb-5 pb-4" style="width: 32rem; border-radius: 1.5rem; border: none;">
+      <div class="card-body">
+        <h2 class="text-center">Ajouter une annonce</h2>
+        <br>
+        <form #voitureForm="ngForm" (ngSubmit)="submitVoiture(voitureForm)">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="titre">Titre</label>
+                          <input type="text" class="form-control" name="titre" id="titre" required [(ngModel)]="annonces.titre"
+                                 #titre="ngModel">
+                        </div>
+                        <div class="form-group">
+                          <label for="marque">Marque</label>
+                          <select class="form-control" id="marque" required name="marque" [(ngModel)]="marqueID">
+                            <option *ngFor="let marque of marques" [value]="marque.id">{{marque.nom}}</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="modele">Modèle</label>
+                          <select class="form-control" id="modele" required [(ngModel)]="annonces.modele.id" name="modele"
+                                  #modele="ngModel">
+                            <option *ngFor="let modele of modeles" [value]=" modele.id">{{modele.nom}}
+                            </option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="annee">Année</label>
+                          <select class="form-control" id="annee" required [(ngModel)]="annonces.annee" name="annee"
+                                  #annee="ngModel">
+                            <option *ngFor="let annee of annees" [value]="annee">{{annee}}</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="kilometre">Kilomètre</label>
+                          <input type="text" class="form-control" name="kilometre" id="kilometre" required
+                                 [(ngModel)]="annonces.kilometrage" #kilometre="ngModel">
+                        </div>
+                        <div class="form-group">
+                          <label for="carburant">Carburant</label>
+                          <select class="form-control" id="carburant" required [(ngModel)]="annonces.carburant.id"
+                                  name="carburant" #carburant="ngModel">
+                            <option *ngFor="let carburant of carburants" [value]="carburant.id">{{carburant.nom}}</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="prix">Prix</label>
+                          <input type="text" class="form-control" name="prix" id="prix" required [(ngModel)]="annonces.prix"
+                                 #prix="ngModel">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="garage">Garage</label>
+                          <select class="form-control" id="garage" required [(ngModel)]="annonces.garage.id" name="garage"
+                                  #garage="ngModel">
+                            <option *ngFor="let garage of garages" [value]="garage.id">{{garage.nom}}</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="description">description</label>
+                          <input type="textarea" rows="10" class="form-control" name="description" id="description" required
+                                 [(ngModel)]="annonces.description" #description="ngModel">
+                        </div>
+                        <div class="form-group">
+                          <label for="petiteDescription">Petite Description</label>
+                          <input type="textarea" rows="10" class="form-control" name="petiteDescription" id="petiteDescription"
+                                 required [(ngModel)]="annonces.petiteDescription" #petitedes="ngModel">
+                        </div>
+                        <div class="form-group">
+                          <label for="photo">Photo</label>
+                          <input type="file" class="form-control" name="photo" id="photo" accept="image/*"
+                                 (change)="processFile($event.target.files)" placeholder="Photo principale *"
+                                 [(ngModel)]="annonces.photo" #image="ngModel">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="photo2">Photo2</label>
+                          <input type="file" class="form-control" id="photo2" name="photo2" placeholder="photo facultatif *"
+                                 accept="image/*" (change)="processFile($event.target.files)" [(ngModel)]="annonces.photo2"
+                                 #image="ngModel">
+                        </div>
+                        <div class="form-group">
+                          <label for="photo3">Photo3</label>
+                          <input type="file" class="form-control" accept="image/*" (change)="processFile($event.target.files)"
+                                 name="photo3" id="photo3" placeholder="photo facultatif *" [(ngModel)]="annonces.photo3" #image="ngModel">
+                        </div>
+                        <div [hidden]="voitureForm.valid" class="alert alert-danger">
+                          Tous les champs sont requis
+                        </div><br>
+                        <input type="submit" class="btnRegister" [disabled]="!voitureForm" value="Publier" />
+                      </div>
+
+
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+
+<script>
+  inputNode.value = fileInput.value.replace('C:\\fakepath\\', '');
+</script>
+

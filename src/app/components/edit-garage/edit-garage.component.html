@@ -1,0 +1,40 @@
+<div class="padding">
+
+  <div class="container py-5 d-flex justify-content-center">
+    <div class="card shadow mb-5 pb-4 bg-white" style="width: 32rem; border-radius: 1.5rem; border: none;">
+      <div class="card-body">
+        <h2 class="text-center">Modifier un garage</h2>
+        <br>
+        <form #garageForm="ngForm" (ngSubmit)="editGarage()">
+
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="garage.nom" #nom="ngModel">
+          <div [hidden]="nom.valid"
+               class="alert alert-danger">
+            Nom invalide
+          </div>
+          <label for="adresse">Adresse</label>
+          <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="garage.adresse"
+                 #adresse="ngModel">
+          <div [hidden]="adresse.valid"
+               class="alert alert-danger">
+            Adresse invalide
+          </div>
+          <label for="telephone">Téléphone</label>
+          <input type="tel" class="form-control" id="telephone" name="telephone" [(ngModel)]="garage.telephone"
+                 #telephone="ngModel">
+          <div [hidden]="telephone.valid"
+               class="alert alert-danger">
+            Téléphone invalide
+          </div>
+
+          <br>
+          <div class="text-center">
+            <input [disabled]="!garageForm.valid" type="submit" id="submiterPlanet" class="btn">
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

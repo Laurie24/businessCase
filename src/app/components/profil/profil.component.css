@@ -1,0 +1,21 @@
+.padding{
+  padding-top: 12rem;
+}
+
+button{
+  width: 12rem;
+  background-color: #06DF86;
+  border-radius: .2rem;
+  border: none;
+  padding: .5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.deco{
+  background-color: #191B28;
+}
+
+button:hover{
+
+}

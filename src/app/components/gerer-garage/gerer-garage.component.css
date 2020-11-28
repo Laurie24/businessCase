@@ -1,0 +1,45 @@
+.padding{
+  padding-top: 12rem;
+}
+
+h1{
+  text-align: center;
+  padding-bottom: 3rem;
+
+}
+
+.btn{
+  background-color: #06DF86;
+  color: #191B28;
+  margin: .5rem;
+}
+
+
+
+.edit{
+  margin: .5rem;
+  color: #191B28;
+  font-size: 1.5rem;
+}
+
+.sup{
+  margin: .5rem;
+  color: #191B28;
+  font-size: 1.5rem;
+}
+
+mat-spinner{
+  margin: 10rem 0 2rem 0;
+  justify-content: center;
+}
+
+
+.mat-progress-spinner::ng-deep circle {
+  stroke: #06DF86;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+}
+

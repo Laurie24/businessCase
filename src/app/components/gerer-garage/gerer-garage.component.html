@@ -1,0 +1,76 @@
+<div *ngIf="!isLoading" class="padding">
+  <h1>Gérer mes garages</h1>
+  <div class="container">
+    <table class="table">
+      <thead>
+      <th>Nom</th>
+      <th>Adresse</th>
+      <th>Téléphone</th>
+      <th>Siret</th>
+      <th>Option</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let garage of this.garages">
+        <td>{{ garage.nom }}</td>
+        <td>{{ garage.adresse }}</td>
+        <td>{{ garage.telephone }}</td>
+        <td>{{ garage.siret }}</td>
+        <td>
+          <a class="edit" [routerLink]="['/gererGarage/update', garage.id]"><i class="fas fa-edit"></i></a>
+          <a class="sup" style="cursor: pointer" (click)="deleteGarage(garage)"><i class="fas fa-trash"></i>
+          </a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container py-5 d-flex justify-content-center">
+    <div class="card shadow mb-5 pb-4" style="width: 32rem; border-radius: 1.5rem; border: none;">
+      <div class="card-body">
+        <h2 class="text-center">Ajouter un garage</h2>
+        <br>
+        <form #garageForm="ngForm" (ngSubmit)="submitGarage()">
+
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nom">nom</label>
+              <input type="text" class="form-control" name="nom" id="nom" required [(ngModel)]="garage.nom"
+                     #nom="ngModel">
+            </div>
+            <div class="form-group">
+              <label for="adresse">adresse</label>
+              <input type="text" class="form-control" name="adresse" id="adresse" required
+                     [(ngModel)]="garage.adresse" #adresse="ngModel">
+            </div>
+            <div class="form-group">
+              <label for="telephone">telephone</label>
+              <input type="text" class="form-control" name="telephone" id="telephone" required
+                     [(ngModel)]="garage.telephone" #telephone="ngModel">
+            </div>
+            <div class="form-group">
+              <label for="siret">siret</label>
+              <input type="text" class="form-control" name="siret" id="siret" required [(ngModel)]="garage.siret"
+                     #siret="ngModel">
+            </div>
+            <input type="submit" class="btnRegister" [disabled]="!garageForm" value="Publier"/>
+          </div>
+
+
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="isLoading">
+  <div class="box">
+    <div class="row">
+      <mat-spinner class="custom-spinner-color"></mat-spinner>
+    </div>
+    <div class="row">
+      <p>Chargement en cours...</p>
+    </div>
+  </div>
+</ng-container>
